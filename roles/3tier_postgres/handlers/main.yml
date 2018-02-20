@@ -1,0 +1,8 @@
+---
+# postgres handlers file for 3tier_application
+
+  - name: enable postgres service
+    service:
+      name: postgresql
+      enabled: yes
+

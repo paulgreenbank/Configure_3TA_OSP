@@ -1,0 +1,13 @@
+---
+# tomcat handlers file for 3tier_application
+
+  - name: enable tomcat service
+    service:
+      name: tomcat
+      enabled: yes
+      state: started
+
+  - name: restart tomcat service
+    service:
+      name: tomcat
+      state: restarted

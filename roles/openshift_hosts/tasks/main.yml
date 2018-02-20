@@ -1,0 +1,27 @@
+---
+
+# tasks file for osp-facts
+  - name: Fetch Instance Info
+    os_server_facts:
+     cloud: ospcloud
+     region_name: RegionOne
+    register: result
+
+  - name: Create host group based on metadata group
+    add_host:
+      name: "{{ item.public_v4 }}"
+      groups: all
+    with_items: "{{ result.ansible_facts.openstack_servers }}"
+
+  - name: Create host group based on metadata group
+    add_host:
+      name: "{{ item.public_v4 }}"
+      groups: "{{ item.metadata.group }}"
+    with_items: "{{ result.ansible_facts.openstack_servers }}"
+
+  - name: Create host group based on metadata deployment_name
+    add_host:
+      name: "{{ item.public_v4 }}"
+      groups: "{{ item.metadata.deployment_name }}"
+    with_items: "{{ result.ansible_facts.openstack_servers }}"
+

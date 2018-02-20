@@ -1,0 +1,13 @@
+---
+# Rollback postgres tasks file for 3tier_application
+
+  - name: Remove postgres
+    yum:
+      name: "{{ postgres_package }}"
+      state: absent
+
+  - name: Remove postgres data
+    file:
+      path: /var/lib/pgsql/data
+      state: absent
+

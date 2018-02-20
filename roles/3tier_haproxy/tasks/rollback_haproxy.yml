@@ -1,0 +1,14 @@
+---
+# haproxy rollback tasks file for 3tier_application
+
+  - name: Remove installed HAProxy packages
+    yum:
+      name: "{{ item }}"
+      state: absent
+    with_items: "{{ haproxy_packages }}"
+
+  - name: Remove HAProxy config
+    file:
+      path: "{{ haproxy_config }}"
+      state: absent
+

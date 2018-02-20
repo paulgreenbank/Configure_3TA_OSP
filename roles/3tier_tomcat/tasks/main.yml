@@ -1,0 +1,33 @@
+---
+# tasks file for 3tier_application tomcat role
+
+  - name: install tomcat package
+    yum:
+      name: "{{ tomcat_package }}"
+      state: latest
+    notify:
+      - enable tomcat service
+
+  - name: create ansible tomcat web directories
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items: "{{ tomcat_webapps_directories }}"
+
+  - name: copy static index.html to tomcat webapps/ROOT/index.html
+    template:
+      src: index.html.j2
+      dest: /usr/share/tomcat/webapps/ROOT/index.html
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart tomcat service
+
+  - name: copy static index.html to tomcat webapps/ansible/index.html
+    template:
+      src: index.html.app.j2
+      dest: /usr/share/tomcat/webapps/ansible/index.html
+    notify:
+      - restart tomcat service
+

@@ -1,0 +1,14 @@
+---
+# haproxy handlers file for 3tier_application
+
+  - name: enable haproxy service
+    service:
+      name: haproxy
+      enabled: yes
+      state: started
+
+  - name: restart haproxy service
+    service:
+      name: haproxy
+      state: restarted
+

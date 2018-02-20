@@ -1,0 +1,40 @@
+- hosts: jumpbox
+  gather_facts: false
+  roles:
+    - openshift_hosts
+
+- name: Add yum repo for 3Tier application
+  hosts: all:!jumpbox
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Including common role
+      include_role:
+        name: 3tier_common
+
+- name: Install Postgres for 3Tier application
+  hosts: appsdb
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Including postgres role
+      include_role:
+        name: 3tier_postgres
+
+- name: Install Tomcat for 3Tier application
+  hosts: apps
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Including tomcat role
+      include_role:
+        name: 3tier_tomcat
+
+- name: Install HAProxy for 3Tier application
+  hosts: frontends
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Including haproxy role
+      include_role:
+        name: 3tier_haproxy

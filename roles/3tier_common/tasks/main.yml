@@ -1,0 +1,11 @@
+---
+# common tasks file for 3tier_application
+
+  - name: Setup Application software repos
+    copy:
+      src: ./files/open_three-tier-app.repo
+      dest: /etc/yum.repos.d/open_three-tier-app.repo
+      owner: root
+      group: root
+      mode: 0644
+

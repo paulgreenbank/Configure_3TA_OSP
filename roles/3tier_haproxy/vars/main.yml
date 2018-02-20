@@ -1,0 +1,7 @@
+---
+haproxy_packages:
+  - httpie
+  - haproxy
+haproxy_config_template: haproxy.cfg.j2
+haproxy_config: /etc/haproxy/haproxy.cfg
+

@@ -1,0 +1,17 @@
+---
+# haproxy tasks file for 3tier_application
+
+  - name: Install required HAProxy packages
+    yum:
+      name: "{{ item }}"
+      state: latest
+    with_items: "{{ haproxy_packages }}"
+    notify:
+      - enable haproxy service 
+      
+  - name: configure haproxy service
+    template:
+      src: "{{ haproxy_config_template }}"
+      dest: "{{ haproxy_config }}"
+    notify:
+      - restart haproxy service

@@ -1,0 +1,7 @@
+---
+tomcat_webapp_owner: "tony.g.kay@gmail.com"
+tomcat_package: tomcat
+tomcat_webapps_directories:
+  - /usr/share/tomcat/webapps/ROOT
+  - /usr/share/tomcat/webapps/ansible
+

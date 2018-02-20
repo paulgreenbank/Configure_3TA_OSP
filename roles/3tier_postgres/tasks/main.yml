@@ -1,0 +1,19 @@
+---
+# postgres tasks file for 3tier_application
+
+  - name: install postgres
+    yum:
+      name: "{{ postgres_package }}"
+      state: latest
+    notify:
+      - enable postgres service
+
+  - name: initilize postgres
+    command: postgresql-setup initdb
+    args:
+      creates: /var/lib/pgsql/data/postgresql.conf
+
+  - name: start postgres
+    service:
+      name: postgresql
+      state: started

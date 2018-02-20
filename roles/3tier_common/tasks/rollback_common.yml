@@ -1,0 +1,7 @@
+---
+# common rollback tasks file for 3tier_application
+
+  - name: Remove Application software repos
+    file:
+      path: /etc/yum.repos.d/open_three-tier-app.repo
+      state: absent

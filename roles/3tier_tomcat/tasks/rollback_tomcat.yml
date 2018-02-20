@@ -1,0 +1,14 @@
+---
+# Rollback tasks file for 3tier_application tomcat role
+
+  - name: Remove tomcat package
+    yum:
+      name: "{{ tomcat_package }}"
+      state: absent
+
+  - name: Remove ansible tomcat web directories
+    file:
+      path: "{{ item }}"
+      state: absent
+    with_items: "{{ tomcat_webapps_directories }}"
+
