@@ -1,10 +1,10 @@
-- hosts: jumpbox
+- hosts: all
   gather_facts: false
   roles:
     - openshift_hosts
 
 - name: Add yum repo for 3Tier application
-  hosts: all:!jumpbox
+  hosts: appsdb:apps:frontends
   gather_facts: true
   become: yes
   tasks:
