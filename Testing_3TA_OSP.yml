@@ -11,13 +11,17 @@
   tasks:
     - name: Check URL content returned from first frontend HAProxy
       uri:
-        url: http://{{ groups['frontends'][0] }}
+        url: http://{{ item }}
         return_content: yes
       register: webpage
+      with_inventory_hostnames:
+        - frontends
+
+## Content check currently restricted to first frontend server content
 
     - name: Fail if "Ansible has done its job" is not in the page content
       fail: mgs="Incorrect content returned from Proxy"
-      when: "'Ansible has done its job' not in webpage.content"
+      when: "'Ansible has done its job' not in webpage.results.0.content"
 
 - name: Check Postgres for 3Tier application
   hosts: appsdb
