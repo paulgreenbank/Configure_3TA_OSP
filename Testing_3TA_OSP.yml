@@ -6,12 +6,12 @@
     - openshift_hosts
 
 - name: Check contents returned from HAProxy
-  hosts: frontends
+  hosts: jumpbox
   gather_facts: false
   tasks:
-    - name: Check URL content from HAProxy
+    - name: Check URL content returned from first frontend HAProxy
       uri:
-        url: http://127.0.0.1
+        url: http://{{ groups['frontends'][0] }}
         return_content: yes
       register: webpage
 
