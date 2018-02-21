@@ -1,9 +1,9 @@
 ---
 
-- hosts: all
+- hosts: jumpbox
   gather_facts: false
   roles:
-    - openshift_hosts
+    - { role: openstack_hosts, tags: openstack }
 
 - name: Check contents returned from HAProxy
   hosts: jumpbox
