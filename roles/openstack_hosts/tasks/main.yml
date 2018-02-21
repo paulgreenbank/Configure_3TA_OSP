@@ -6,6 +6,7 @@
      cloud: ospcloud
      region_name: RegionOne
     register: result
+    tags: openstack
 
   - name: Create host group based on metadata group
     add_host:
@@ -13,6 +14,7 @@
       groups: all
     with_items: "{{ result.ansible_facts.openstack_servers }}"
     no_log: True
+    tags: openstack
 
   - name: Create host group based on metadata group
     add_host:
@@ -20,6 +22,7 @@
       groups: "{{ item.metadata.group }}"
     with_items: "{{ result.ansible_facts.openstack_servers }}"
     no_log: True
+    tags: openstack
 
   - name: Create host group based on metadata deployment_name
     add_host:
@@ -27,4 +30,5 @@
       groups: "{{ item.metadata.deployment_name }}"
     with_items: "{{ result.ansible_facts.openstack_servers }}"
     no_log: True
+    tags: openstack
 
