@@ -1,7 +1,7 @@
 ---
 # Configure and deploy 3Tier Application
 
-- hosts: jumphost
+- hosts: jumpbox
   gather_facts: false
   roles:
     - { role: openstack_hosts, tags: openstack }
