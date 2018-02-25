@@ -2,7 +2,7 @@
 # 3Tier Application cleanup / rollback playbook
 
 - name: Remove yum repo for 3Tier application
-  hosts: appdbs:apps:frontends
+  hosts: appsdb:apps:frontends
   tasks:
     - name: Including common role
       include_role:
@@ -10,7 +10,7 @@
         tasks_from: rollback_common
 
 - name: Remove Postgres for 3Tier application
-  hosts: appdbs
+  hosts: appsdb
   tasks:
     - name: Including postgres role
       include_role:
