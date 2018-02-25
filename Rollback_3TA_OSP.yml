@@ -6,7 +6,7 @@
   tasks:
     - name: Including common role
       include_role:
-        name: common
+        name: 3tier_common
         tasks_from: rollback_common
 
 - name: Remove Postgres for 3Tier application
@@ -14,7 +14,7 @@
   tasks:
     - name: Including postgres role
       include_role:
-        name: postgres
+        name: 3tier_postgres
         tasks_from: rollback_postgres
 
 - name: Remove Tomcat for 3Tier application
@@ -22,7 +22,7 @@
   tasks:
     - name: Including tomcat role
       include_role:
-        name: tomcat
+        name: 3tier_tomcat
         tasks_from: rollback_tomcat
 
 - name: Remove HAProxy for 3Tier application
@@ -30,7 +30,7 @@
   tasks:
     - name: Including haproxy role
       include_role:
-        name: haproxy
+        name: 3tier_haproxy
         tasks_from: rollback_haproxy
 
 
