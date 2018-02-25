@@ -1,0 +1,36 @@
+---
+# 3Tier Application cleanup / rollback playbook
+
+- name: Remove yum repo for 3Tier application
+  hosts: all
+  tasks:
+    - name: Including common role
+      include_role:
+        name: common
+        tasks_from: rollback_common
+
+- name: Remove Postgres for 3Tier application
+  hosts: appdbs
+  tasks:
+    - name: Including postgres role
+      include_role:
+        name: postgres
+        tasks_from: rollback_postgres
+
+- name: Remove Tomcat for 3Tier application
+  hosts: apps
+  tasks:
+    - name: Including tomcat role
+      include_role:
+        name: tomcat
+        tasks_from: rollback_tomcat
+
+- name: Remove HAProxy for 3Tier application
+  hosts: frontends
+  tasks:
+    - name: Including haproxy role
+      include_role:
+        name: haproxy
+        tasks_from: rollback_haproxy
+
+
