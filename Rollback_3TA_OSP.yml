@@ -2,7 +2,7 @@
 # 3Tier Application cleanup / rollback playbook
 
 - name: Remove yum repo for 3Tier application
-  hosts: all
+  hosts: appdbs:apps:frontends
   tasks:
     - name: Including common role
       include_role:
