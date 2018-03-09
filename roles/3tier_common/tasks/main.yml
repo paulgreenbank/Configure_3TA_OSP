@@ -1,5 +1,21 @@
 ---
-# common tasks file for 3tier_application
+## common tasks file for 3tier_application
+
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Common tasks which are applied to all instances in the application stack, currently this is
+# just to deploy the Yum repository for the application install.
+# The repo file is sourced from the role files directory where it is encrypted via Ansible vault
+# for security, when played via Ansible core the --ask-vault-pass parameter should be used in tower 
+# the vault credenitals should be associated with the deployment template.
+#
+
 
   - name: Setup Application software repos
     copy:

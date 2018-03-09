@@ -1,4 +1,18 @@
 ---
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Install requuired HAProxy packages from a list which can be expanded on by adjusting the 
+# varaibles list without changes to playbook code.
+# Configuration is applied via a configuration template which uses the frontend inventory 
+# group, the number of frontends can also be expanded by adjusting the inventory group. 
+#
+
 # haproxy tasks file for 3tier_application
 
   - name: Install required HAProxy packages

@@ -1,4 +1,24 @@
 ---
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Postgres pckage is installed as a single package and subsequent runs will ensure its set
+# to the latest version.
+# Postgres is initilized if the postgres.conf isn't present this should be a one time action  
+# done only on initial install, it can be re-run by removing the postgres.conf
+# Postgres service is started post initilization
+#
+
+## Playbook enhancements post PoC:
+#
+# Postgres service could be moved to a handler associated with the initilization task.
+#
+
 # postgres tasks file for 3tier_application
 
   - name: install postgres

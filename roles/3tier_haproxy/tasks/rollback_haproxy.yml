@@ -1,6 +1,20 @@
 ---
 # haproxy rollback tasks file for 3tier_application
 
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Role is called via the Rollback_3TA_OSP playbook, it will rollback the HAProxy tasks which
+# have been applied to frontend instances in the application stack
+#
+
+# haproxy rollback tasks file for 3tier_application
+
   - name: Remove installed HAProxy packages
     yum:
       name: "{{ item }}"

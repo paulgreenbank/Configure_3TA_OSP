@@ -1,6 +1,31 @@
 ---
 # 3Tier Application cleanup / rollback playbook
 
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Playbook references rollback plays within the 3 application component roles
+# for common, Postgres, Tomcat and HAProxy.
+# All packages are removed as well as any deployed content or configuration
+# leaving the VM in a clean state to replay the Configure_3TA_OSP playbook.
+# Although onlyused for OpenStack this playbook could also be used for the AWS instances
+# using seperate inventories OpenStack using the cloud-user and AWS ec2-user and the respective 
+# bastions.
+#
+
+## Playbook enhancements post PoC:
+#
+# Although during creation various methods were tested to do partial rollbacks
+# this was not sucessful as testing showed after the rollback was done then the playbook
+# continued and left a crippled application.
+# 
+#
+
 - name: Remove yum repo for 3Tier application
   hosts: appsdb:apps:frontends
   tasks:

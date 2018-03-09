@@ -1,5 +1,27 @@
 ---
-# Configure and deploy 3Tier Application
+## Configure and deploy 3Tier Application
+
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Playbook uses 3 configuration roles and a tagged in memory inventory role
+# to configure the OpenStack instances.
+# Inventory groups are created based on OpenStack meta tags used during instance deployment.
+# The openstack_hosts role has been tagged so when deploying application into AWS
+# this role can be excluded from the play in the Ansible Tower template using skip tags.
+# The yum repo file is encrypted using ansible vault to protect it's contents while stored in
+# public git repository.
+
+## Playbook enhancements post PoC:
+#
+# Enhancements would be to remove the in memory inventory in favour of of setting up 
+# a inventory using the OpenStack source
+#
 
 - hosts: jumpbox
   gather_facts: false

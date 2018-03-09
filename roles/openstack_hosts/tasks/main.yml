@@ -1,4 +1,17 @@
 ---
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# In memory inventory is created from the deployed OpenStack instances.
+# The os_server_facts moduleis used to collect metadata tags added during the
+# instance creation, this is then used to group the instances into application 
+# groups.
+#
 
 # tasks file for osp-facts
   - name: Fetch Instance Info

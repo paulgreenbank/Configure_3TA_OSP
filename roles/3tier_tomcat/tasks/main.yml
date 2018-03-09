@@ -1,4 +1,26 @@
 ---
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Installs Tomcat package named in the variables file.
+# Application directories are created if the are no created with the Tomcat install process
+# this is to ensure that the necessary directory are present prior to installing the Tomcat
+# content files.
+# Tomcat application content files are then installed from two seperate html templates in which
+# content is configured based on the tomcat backend server name.
+#
+
+## Playbook enhancements post PoC:
+#
+# Tomcat package install should be expanded to use items so that any extra dependencies can
+# be added to the variables rather than having to alter the playbook.
+#
+
 # tasks file for 3tier_application tomcat role
 
   - name: install tomcat package

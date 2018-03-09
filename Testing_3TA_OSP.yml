@@ -1,4 +1,27 @@
 ---
+## Test 3Tier Application deployment
+
+## RedHat Ansible Boot Camp homework assignment
+## Playbook have been written as a PoC for a 3Tier Application deployment
+## All playbook have been written via Ansible Core and used in Ansible Tower
+
+## Created a written by Paul Greenbank - Technical Consultant for Open System Specialists
+
+## Playbook description:
+#
+# Playbook which tests the deployed application components, URL returned by HAProxy, Postgres service,
+# Tomcat service and deployed html pages.
+# All aspects of the application are tested so issues in the deployment can be isolated sine during the 
+# Ansible Tower workflow the OpenStack instances are destroyed on failure.
+#
+
+## Playbook enhancements post PoC:
+#
+# Further investigation into testing multiple HAProxy frontends needs to be done, the current play 
+# returns the content of all front ends into the webpage register however only the first frontend index 
+# is checked for content.
+# No Postgres content is tested only that the service is up and running.
+#
 
 - hosts: jumpbox
   gather_facts: false
